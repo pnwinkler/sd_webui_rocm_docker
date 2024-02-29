@@ -1,7 +1,7 @@
 This is a personal project. This means you can use it as you like, but please note that I expect nothing of you, and promise nothing to you.
 
 # What this repo does
-This sets up stable-diffusion web UI in a docker image, with the ability to use the system's AMD GPU. It works on my system (Ubuntu 22.04.3 with ROCm 5.6 installed, and AMD RX 6700 XT) as of 2023-10-17, but perhaps not yours.
+This sets up stable-diffusion web UI in a docker image, with the ability to use the system's AMD GPU. It works on my system (Ubuntu 22.04.3 with ROCm 6.0 installed, and AMD RX 6700 XT) as of 2024-02-28, but perhaps not yours.
 
 # Steps
 1) have ROCm installed on the host machine.

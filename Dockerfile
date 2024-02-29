@@ -1,6 +1,6 @@
 # Note that there may be a memory leak. If you run out of VRAM when upscaling (for example), you'll need to re-launch the docker container in order to recover that VRAM. I probably used a wrong library version somewhere :/
 
-FROM rocm/pytorch:rocm5.7_ubuntu22.04_py3.10_pytorch_2.0.1
+FROM rocm/pytorch:rocm6.0.2_ubuntu22.04_py3.10_pytorch_2.1.2
 
 # Allow ROCm to work with 6700 XT
 ENV HSA_OVERRIDE_GFX_VERSION=10.3.0
@@ -13,8 +13,8 @@ RUN ln -s $(which python3) /usr/local/bin/python
 
 RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
 WORKDIR "./stable-diffusion-webui"
-# currently this is the most recent commit
-RUN git reset --hard 4afaaf8a020c1df457bcf7250cb1c7f609699fa7
+# this is the most recent commit as of 2024-02-29
+RUN git reset --hard cf2772fab0af5573da775e7437e6acdca424f26e
 RUN python -m venv venv
 RUN . ./venv/bin/activate
 RUN python -m pip install --upgrade pip wheel
