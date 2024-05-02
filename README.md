@@ -11,11 +11,12 @@ This sets up stable-diffusion web UI in a docker image, with the ability to use 
 5) ```xhost +local: && sudo docker run --rm -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/dockerx:/dockerx -e DISPLAY=${DISPLAY} stable-diffusion-webui-rocm```
 6) inside the docker image, run ```pylaunchgui``` for the GUI, or ```pylaunchapi``` for API only.
 
+There's also a Docker Compose option. Just update the volume paths in compose.yaml, chmod +x start.sh, then run start.sh
+
 ## Advice
 - The xhost stuff is adapted from [this DockerHub page](https://hub.docker.com/r/rocm/pytorch).
 - Following a successful build and user test, you may wish to re-build using a newer commit than the one I hard-coded in the Dockerfile.
 
 - There's a lot of experimentation in finding good prompts. There are good guides, however.
-- The aspect ratio of an output image will affect its contents. The same prompt, model, and seed at 512x512 will likely result in a markedly different image to those params at 512x768, for example.
 - If you have limited VRAM, try launching with the "--medvram" or "--lowvram" parameters.
-- stable-diffusion XL models seem to require a lot of VRAM.
+- stable-diffusion XL models require a lot of VRAM. Interestingly, I can run some repeatedly via the API but not the GUI.
