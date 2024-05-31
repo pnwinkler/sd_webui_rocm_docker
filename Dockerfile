@@ -13,8 +13,8 @@ RUN ln -s $(which python3) /usr/local/bin/python
 
 RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
 WORKDIR "./stable-diffusion-webui"
-# this is the most recent commit as of 2024-02-29
-RUN git reset --hard cf2772fab0af5573da775e7437e6acdca424f26e
+# this is the most recent commit as of 2024-05-31
+RUN git reset --hard feee37d75f1b168768014e4634dcb156ee649c05
 RUN python -m venv venv
 RUN . ./venv/bin/activate
 RUN python -m pip install --upgrade pip wheel
