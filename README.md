@@ -1,7 +1,7 @@
 This is a personal project. This means you can use it as you like, but please note that I expect nothing of you, and promise nothing to you.
 
 # What this repo does
-This sets up stable-diffusion web UI in a docker image, with the ability to use the system's AMD GPU. It works on my system (Ubuntu 22.04.3 with ROCm 6.0 installed, and AMD RX 6700 XT) as of 2024-02-28, but perhaps not yours.
+This sets up stable-diffusion web UI in a docker image, with the ability to use the system's AMD GPU. It works on my system (Ubuntu 22.04.3 with ROCm 6.0 installed, and AMD RX 6700 XT) as of 2024-05-31, but perhaps not yours.
 
 # Steps
 ## With docker compose (easier)
@@ -13,7 +13,9 @@ This sets up stable-diffusion web UI in a docker image, with the ability to use 
 6) inside the docker container, run ```pylaunchgui``` for the GUI, or ```pylaunchapi``` for API only.
 
 ## Without docker compose
-1-3) as above
+1) as above
+2) as above
+3) as above
 4) ```sudo docker build --no-cache -t 'stable-diffusion-webui-rocm' .```
 5) create the volume folder mentioned in the next command, if you haven't already.
 6) ```xhost +local: && sudo docker run --rm -it --network=host --device=/dev/kfd --device=/dev/dri --group-add=video --ipc=host --cap-add=SYS_PTRACE --security-opt seccomp=unconfined -v /tmp/.X11-unix:/tmp/.X11-unix -v $HOME/dockerx:/dockerx -e DISPLAY=${DISPLAY} stable-diffusion-webui-rocm```
